@@ -16,23 +16,26 @@ const nextBtn = $('.btn-next');
 const randomBtn = $('.btn-random');
 const repeatBtn = $('.btn-repeat');
 const playlist = $('.playlist')
-const volumeSlider = $('.volume');
 const heart = $('.btn-heart');
-const volumeBtn = $('.btn-volume');
 const container = $('.container')
 const toggle = $('.toggle');
 const sun = $('.fa-sun');
 const moon = $('.fa-moon');
 const title = $('title');
+const volumeBtn = $('.btn-volume');
+const volumeBar = $('.volume-bar');
+const volumeBarValue = $('.volume-bar__value');
 
 
 const app = {
   currentIndex: 0,
+  currentVolume: 1,
   isPlaying: false,
   isRandom: false,
   isRepeat: false,
   isHeart: false,
-  isVolume: false,
+  isMute: false,
+  isHoldVolumeBar: false,
   songs: [
     {
       name: 'Bật tình yêu lên',
@@ -301,21 +304,10 @@ const app = {
     }
 
     heart.onclick = function () {
-      _this.isHeart = !_this.isHeart;
-      if (_this.isHeart) {
-        heart.classList.toggle("active", _this.isHeart);
-      }
+      heart.classList.toggle("active");
     }
 
-    volumeSlider.oninput = function (e) {
-      const volumeValue = e.target.value;
-      audio.volume = volumeValue;
-      if (volumeValue == 0) {
-        volumeBtn.classList.add("min");
-      } else {
-        volumeBtn.classList.remove("min");
-      }
-    }
+
 
     window.onkeydown = function (e) {
       if (e.which == 32) {
@@ -329,6 +321,42 @@ const app = {
         nextBtn.click();
       }
     }
+
+
+
+    volumeBar.onmousedown = function (e) {
+      _this.currentVolume = (e.offsetX / this.offsetWidth).toFixed(2);
+      audio.volume = _this.currentVolume;
+      volumeBarValue.style.width = audio.volume * 100 + "%";
+      if (audio.volume == 0) {
+        _this.isMute = true;
+      } else {
+        _this.isMute = false;
+      }
+
+    };
+
+    volumeBtn.onclick = function () {
+      _this.isMute = !_this.isMute;
+      volumeBtn.classList.toggle("active", _this.isMute);
+      if (_this.isMute) {
+        audio.volume = 0;
+      } else {
+        audio.volume = _this.currentVolume;
+      }
+    };
+
+
+    audio.onvolumechange = function () {
+      if (_this.isMute) {
+        volumeBtn.classList.add("active");
+        volumeBarValue.style.width = 0;
+      } else {
+        volumeBtn.classList.remove("active");
+        volumeBarValue.style.width = audio.volume * 100 + "%";
+      }
+    };
+
   },
 
   scrollActiveSong: function () {
@@ -405,9 +433,6 @@ const app = {
 
     //Render playlist 
     this.render();
-    this.renders();
-
-
   }
 }
 

@@ -155,7 +155,7 @@ header h2 {
 }
 
 .control .btn.active {
-    color: var(--primary-color);
+    color: red;
 }
 
 .control .btn-toggle-play {
@@ -170,6 +170,11 @@ header h2 {
     background-color: var(--primary-color);
 }
 
+.btn-volume {
+    position: relative;
+}
+
+.volume-bar,
 .progress-bar {
     height: 6px;
     border-radius: 5px;
@@ -177,6 +182,7 @@ header h2 {
     position: relative;
 }
 
+.volume-bar__value,
 .progress-bar__value {
     position: absolute;
     top: 0;
@@ -185,13 +191,39 @@ header h2 {
     align-items: center;
     display: flex;
     border-radius: 5px;
-    width: 12px;
+    width: 0%;
     background-image: linear-gradient(
         45deg,
         rgb(65, 88, 208) 0%,
         rgb(200, 80, 192) 50%,
         rgb(255, 204, 112) 100%
     );
+}
+
+.volume-bar {
+    position: absolute;
+    width: 70px;
+    transform: rotate(270deg);
+    top: 16px;
+}
+
+.volume-bar__value {
+    position: absolute;
+    width: 12%;
+}
+
+.btn-volume .volume__icon--mute {
+    display: none;
+}
+
+.btn-volume.active .volume__icon--mute {
+    color: #fff;
+    display: block;
+}
+
+.btn-volume.active .volume__icon {
+    color: #fff;
+    display: none;
 }
 
 .progress-bar__value::after {
@@ -201,7 +233,7 @@ header h2 {
     height: 12px;
     right: -10px;
     border-radius: 50%;
-    background-color: var(--primary-color);
+    background-color: blue;
     border: 2px solid #fff;
 }
 
@@ -221,40 +253,7 @@ header h2 {
 }
 
 .btn-heart .active {
-    color: red;
-}
-
-.volume {
-    width: 20%;
-    height: 8px;
-    -webkit-appearance: none;
-    background: #d3d3d3;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: 0.2s;
-    transition: opacity 0.2s;
-    border-radius: 9999px;
-}
-
-.volume::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 12px;
-    height: 8px;
-    background-color: var(--primary-color);
-    cursor: pointer;
-}
-
-.control .fa-volume-xmark {
-    display: none;
-}
-
-.control .min .fa-volume-xmark {
-    display: inline-block;
-}
-
-.control .min .fa-volume-high {
-    display: none;
+    background-color: red;
 }
 
 /* PLAYLIST */
