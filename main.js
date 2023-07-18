@@ -322,6 +322,12 @@ const app = {
         e.preventDefault();
         playBtn.click();
       }
+      if (e.which == 37) {
+        prevBtn.click();
+      }
+      if (e.which == 39) {
+        nextBtn.click();
+      }
     }
   },
 
@@ -383,26 +389,6 @@ const app = {
 
     return (finalTime = minutes + ":" + seconds);
   },
-
-
-  renders: function () {
-
-    const htmls = this.songs.map((song, index) => {
-      console.log(this.currentIndex);
-      // if (this.currentIndex === index) {
-      //   // Add some custom styling or class for the currently selected song
-      //   return `<div class="current-song">${song}</div>`;
-      // } else {
-      //   // Render the other songs normally
-      //   return `<div>${song}</div>`;
-      // }
-    });
-
-    // Assuming you have an element with the ID "title" to display the songs
-    // const title = document.getElementById("title");
-    // title.innerHTML = htmls.join("");
-  },
-
 
 
   start: function () {
