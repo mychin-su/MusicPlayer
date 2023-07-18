@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiếp Má Hồng</title>
+  <link rel="stylesheet" href="./assets/CSS/reset.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Montserrat:ital,wght@1,200&family=Open+Sans:ital,wght@1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./assets/CSS/style.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Favicon -->
+
+  <link rel="apple-touch-icon" sizes="57x57" href="./assets/Favicon/">
+  <link rel="apple-touch-icon" sizes="60x60"
+    href="./assets/Favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72"
+    href="./assets/Favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76"
+    href="./assets/Favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114"
+    href="./assets/Favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120"
+    href="./assets/Favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144"
+    href="./assets/Favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152"
+    href="./assets/Favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180"
+    href="./assets/Favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"
+    href="./assets/Favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32"
+    href="./assets/Favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96"
+    href="./assets/Favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16"
+    href="./assets/Favicon/favicon-16x16.png">
+  <link rel="manifest" href="./assets/Favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage"
+    content="./assets/Favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+
+
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="toggle">
+
+      <i class="fa-regular fa-sun"></i>
+
+      <i class="fa-regular fa-moon"></i>
+
+    </div>
+  </div>
+
+  <div class="player">
+    <!-- Dashboard -->
+    <div class="dashboard">
+
+      <!-- Header -->
+      <header>
+        <h4>Music Player</h4>
+        <h2>String 57th & 9th</h2>
+      </header>
+
+      <!-- CD -->
+      <div class="cd">
+        <div class="cd-thumb"
+          style="background-image: url('https://thpttranhungdao.edu.vn/wp-content/uploads/2022/11/Anh-Dep-Lam-Hinh-Nen.jpg')">
+        </div>
+      </div>
+
+      <!-- Control -->
+      <div class="control">
+
+        <div class="btn btn-heart ">
+          <i class="fa-regular fa-heart"></i>
+        </div>
+
+        <div class="btn btn-repeat">
+          <i class="fas fa-redo"></i>
+        </div>
+
+        <div class="btn btn-prev">
+          <i class="fas fa-step-backward"></i>
+        </div>
+
+        <div class="btn btn-toggle-play">
+          <i class="fas fa-pause icon-pause"></i>
+          <i class="fas fa-play icon-play"></i>
+        </div>
+
+        <div class="btn btn-next">
+          <i class="fas fa-step-forward"></i>
+        </div>
+
+        <div class="btn btn-random">
+          <i class="fas fa-random"></i>
+        </div>
+
+        <div class="btn btn-volume ">
+          <i class="fa-solid fa-volume-xmark"></i>
+          <i class="fa-solid fa-volume-high"></i>
+        </div>
+
+        <input type="range" name="" id="range" class="volume" value="0.7"
+          step="0.1" min="0" max="1">
+
+      </div>
+
+      <div class="progress-bar">
+        <div class="progress-bar__value"></div>
+      </div>
+
+      <div class="progress-time">
+        <span class="progress-time__current-time">00:00</span>
+        <span class="progress-time__duration"></span>
+      </div>
+
+      <audio src="" id="audio"></audio>
+    </div>
+    <div class="playlist">
+    </div>
+  </div>
+
+
+  <script src="main.js"></script>
+  <!-- /**
+  * 1.Render songs
+  * 2.Scroll top
+  * 3.Play / pause / seek
+  * 4.CD rotate
+  * 5.Next / prev
+  * 6.Random
+  * 7.Next / Repeat when ended
+  * 8.Active song
+  * 9.Scroll active song into view
+  * 10.Play song when click
+  */ -->
+</body>
+
+</html>
