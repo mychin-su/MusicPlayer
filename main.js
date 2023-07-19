@@ -124,7 +124,117 @@ const app = {
       singer: 'PhúcXP',
       path: './assets/music/song13.mp3',
       image: './assets/img/song13.jpg'
-    }
+    },
+    {
+      name: 'Summertime',
+      singer: 'Cinnamons,Evenin..',
+      path: './assets/music/song14.mp3',
+      image: './assets/img/song14.jpg'
+    },
+    {
+      name: 'Pháo Hồng',
+      singer: 'Đạt Long Vĩnh',
+      path: './assets/music/song15.mp3',
+      image: './assets/img/song15.jpg'
+    },
+    {
+      name: 'NEVEDA',
+      singer: 'DJ Minh Anh',
+      path: './assets/music/song16.mp3',
+      image: './assets/img/song16.jpg'
+    },
+    {
+      name: 'Là Anh',
+      singer: 'Mộng Nhiên',
+      path: './assets/music/song17.mp3',
+      image: './assets/img/song17.jpg'
+    },
+    {
+      name: 'Ngẫu Hứng',
+      singer: 'HoaproX',
+      path: './assets/music/song18.mp3',
+      image: './assets/img/song18.jpg'
+    },
+    {
+      name: 'Thu Cuối',
+      singer: 'Gi Gi Hương Giang',
+      path: './assets/music/song19.mp3',
+      image: './assets/img/song19.jpg'
+    },
+
+    {
+      name: 'Khó Vẽ Nụ Cười',
+      singer: 'Đạt G, Du Uyen',
+      path: './assets/music/song20.mp3',
+      image: './assets/img/song20.jpg'
+    },
+    {
+      name: 'Người Lính Yêu Em',
+      singer: 'Thái Quỳnh',
+      path: './assets/music/song21.mp3',
+      image: './assets/img/song21.jpg'
+    },
+
+    {
+      name: 'Từng Yêu',
+      singer: 'Phan Duy Anh',
+      path: './assets/music/song22.mp3',
+      image: './assets/img/song22.jpg'
+    },
+    {
+      name: 'Muộn Rồi Mà Sao Còn',
+      singer: 'Sơn Tùng MTP',
+      path: './assets/music/song23.mp3',
+      image: './assets/img/song23.jpg'
+    },
+    {
+      name: 'Hoa Nở Không Màu',
+      singer: 'Hoài Lâm',
+      path: './assets/music/song24.mp3',
+      image: './assets/img/song24.jpg'
+    },
+    {
+      name: 'Flower',
+      singer: 'JISOO',
+      path: './assets/music/song25.mp3',
+      image: './assets/img/song25.jpg'
+    },
+    {
+      name: 'Em Có Biết',
+      singer: 'H2K',
+      path: './assets/music/song26.mp3',
+      image: './assets/img/song26.jpg'
+    },
+    {
+      name: 'Cố Giang Tình',
+      singer: 'X2K',
+      path: './assets/music/song27.mp3',
+      image: './assets/img/song27.jpg'
+    },
+    {
+      name: 'Thì Thôi',
+      singer: 'Reddy',
+      path: './assets/music/song28.mp3',
+      image: './assets/img/song28.jpg'
+    },
+    {
+      name: 'Vương Vấn',
+      singer: 'Hana Cẩm Tiên',
+      path: './assets/music/song29.mp3',
+      image: './assets/img/song29.jpg'
+    },
+    {
+      name: 'Cô Độc Vương',
+      singer: 'Thái Quỳnh',
+      path: './assets/music/song30.mp3',
+      image: './assets/img/song31.jpg'
+    },
+    {
+      name: 'Khúc Vương Tình',
+      singer: 'Cần Vinh, Lee Ken',
+      path: './assets/music/song29.mp3',
+      image: './assets/img/song29.jpg'
+    },
   ],
 
   render: function () {
