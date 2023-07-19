@@ -1,6 +1,8 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
+const PLAYER_STORAGE_KEY = 'F8_PLAYER';
+
 const player = $('.player');
 const cd = $('.cd');
 const heading = $('header h2');
@@ -26,7 +28,6 @@ const volumeBtn = $('.btn-volume');
 const volumeBar = $('.volume-bar');
 const volumeBarValue = $('.volume-bar__value');
 
-
 const app = {
   currentIndex: 0,
   currentVolume: 1,
@@ -36,12 +37,19 @@ const app = {
   isHeart: false,
   isMute: false,
   isHoldVolumeBar: false,
+
+  config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
+  setConfig: function (key, value) {
+    this.config[key] = value;
+    localStorage.setItem(PLAYER_STORAGE_KEY, JSON.stringify(this.config));
+  },
+
   songs: [
     {
-      name: 'Bật tình yêu lên',
-      singer: 'Tăng Duy Tân, Hòa Minzy',
-      path: './assets/music/song1.mp3',
-      image: './assets/img/song1.jpg'
+      name: 'Yêu 5',
+      singer: 'Rhymastic',
+      path: './assets/music/song6.mp3',
+      image: './assets/img/song6.jpg'
     },
     {
       name: 'Em Đồng ý',
@@ -62,19 +70,21 @@ const app = {
       image: './assets/img/song4.jpg'
     },
     {
-      name: 'Waiting for you',
+      name: 'Waiting For You',
       singer: 'Mono',
       path: './assets/music/song5.mp3',
       image: './assets/img/song5.jpg'
     },
+
     {
-      name: 'Yêu 5',
-      singer: 'Rhymastic',
-      path: './assets/music/song6.mp3',
-      image: './assets/img/song6.jpg'
+      name: 'Bật Tình Yêu Lên',
+      singer: 'Tăng Duy Tân, Hòa Minzy',
+      path: './assets/music/song1.mp3',
+      image: './assets/img/song1.jpg'
     },
+
     {
-      name: 'Sao cũng được',
+      name: 'Sao Cũng Được',
       singer: 'Thành Đạt',
       path: './assets/music/song7.mp3',
       image: './assets/img/song7.jpg'
@@ -86,13 +96,13 @@ const app = {
       image: './assets/img/song8.jpg'
     },
     {
-      name: 'Em là kẻ đáng thương',
+      name: 'Em Là Kẻ Đáng Thương',
       singer: 'Phát Huy',
       path: './assets/music/song9.mp3',
       image: './assets/img/song9.jpg'
     },
     {
-      name: 'Chưa quên người yêu cũ',
+      name: 'Chưa Quên Người Yêu Cũ',
       singer: 'Ha Nhi',
       path: './assets/music/song10.mp3',
       image: './assets/img/song10.jpg'
@@ -163,7 +173,6 @@ const app = {
 
   handleEvents: function () {
     const _this = this;
-
     // Xử lý background
     moon.onclick = function () {
       container.style.backgroundImage = 'url("./assets/img/backgroundNight.png")';
@@ -269,12 +278,14 @@ const app = {
     //Khi bật / tắt random song
     randomBtn.onclick = function () {
       _this.isRandom = !_this.isRandom;
+      _this.setConfig("isRandom", _this.isRandom);
       randomBtn.classList.toggle("active", _this.isRandom);
     }
 
     //Xủ lý lặp lại một song 
     repeatBtn.onclick = function () {
       _this.isRepeat = !_this.isRepeat;
+      _this.setConfig("isRepeat", _this.isRepeat);
       repeatBtn.classList.toggle("active", _this.isRepeat);
     }
 
@@ -321,8 +332,6 @@ const app = {
         nextBtn.click();
       }
     }
-
-
 
     volumeBar.onmousedown = function (e) {
       _this.currentVolume = (e.offsetX / this.offsetWidth).toFixed(2);
@@ -418,10 +427,16 @@ const app = {
     return (finalTime = minutes + ":" + seconds);
   },
 
+  loadConfig: function () {
+    this.isRandom = this.config.isRandom;
+    this.isRepeat = this.config.isRepeat;
+  },
 
   start: function () {
-    // Định nghĩa các thuộc tính cho object
+    // Gán cấu hình tử config vào ứng dụng 
+    this.loadConfig();
 
+    // Định nghĩa các thuộc tính cho object
     this.defineProperties();
 
     // Lắng nghe / xử lý sự kiện (DOM events)
@@ -433,6 +448,10 @@ const app = {
 
     //Render playlist 
     this.render();
+
+    // Hiển thị trạng thái ban đầu của button repeat và random
+    randomBtn.classList.toggle('active', this.isRandom);
+    repeatBtn.classList.toggle('active', this.isRepeat);
   }
 }
 
