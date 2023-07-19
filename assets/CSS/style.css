@@ -106,6 +106,7 @@ html {
 
 /* Header */
 header {
+    position: relative;
     text-align: center;
     margin-bottom: 10px;
 }
@@ -119,6 +120,16 @@ header h2 {
     color: #fff;
     font-size: 20px;
     margin-top: 7px;
+}
+
+header h1 {
+    font-size: 18px;
+    font-weight: 500;
+    width: 16px;
+    font-family: "Dancing Script", cursive;
+    position: absolute;
+    color: #fff;
+    top: 0;
 }
 
 /* CD */
