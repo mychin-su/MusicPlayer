@@ -38,13 +38,24 @@ const app = {
   isMute: false,
   isHoldVolumeBar: false,
 
+  // Lấy dữ liệu từ localStorage ra sử dụng ban dau không    có gì nên nó sẽ là object rỗng
   config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
   setConfig: function (key, value) {
+
+    // ĐƯA key vào value vào trong object
     this.config[key] = value;
+    // đưa object vào localStorage
     localStorage.setItem(PLAYER_STORAGE_KEY, JSON.stringify(this.config));
   },
 
   songs: [
+    {
+      name: 'Lý Do Là Gì',
+      singer: 'Nguyễn Vĩ',
+      path: './assets/music/song32.mp3',
+      image: './assets/img/song32.jpg'
+    },
+
     {
       name: 'Yêu 5',
       singer: 'Rhymastic',
